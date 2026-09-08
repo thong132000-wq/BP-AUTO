@@ -1,1 +1,45 @@
-test
+backend:
+  name: github
+  repo: YOUR_GITHUB_USERNAME/YOUR_REPOSITORY
+  branch: main
+
+media_folder: "images/cars"
+public_folder: "/images/cars"
+
+collections:
+  - name: "cars"
+    label: "รถยนต์"
+    folder: "data/cars"
+    create: true
+    slug: "{{slug}}"
+    format: "json"
+    fields:
+      - { label: "แสดงบนเว็บไซต์", name: "published", widget: "boolean", default: true }
+      - { label: "ชื่อรถ", name: "title", widget: "string" }
+      - { label: "ยี่ห้อ", name: "brand", widget: "string" }
+      - { label: "รุ่น", name: "model", widget: "string" }
+      - { label: "รุ่นย่อย", name: "variant", widget: "string", required: false }
+      - { label: "ปีรถ", name: "year", widget: "string" }
+      - { label: "ปีจดทะเบียน", name: "registration_year", widget: "string", required: false }
+      - { label: "เลขไมล์", name: "mileage", widget: "string" }
+      - { label: "ราคา", name: "price", widget: "string" }
+      - { label: "เกียร์", name: "transmission", widget: "select", options: ["อัตโนมัติ", "ธรรมดา", "อื่นๆ"] }
+      - { label: "เชื้อเพลิง", name: "fuel", widget: "select", options: ["เบนซิน", "ดีเซล", "ไฮบริด", "ปลั๊กอินไฮบริด", "ไฟฟ้า", "อื่นๆ"] }
+      - { label: "สีรถ", name: "color", widget: "string", required: false }
+      - { label: "สถานที่ดูรถ", name: "location", widget: "string", required: false }
+      - { label: "สถานะรถ", name: "status", widget: "select", options: ["พร้อมขาย", "จองแล้ว", "ขายแล้ว"], default: "พร้อมขาย" }
+      - { label: "รูปหลัก", name: "image", widget: "image" }
+      - label: "รูปรถเพิ่มเติม"
+        name: "gallery"
+        widget: "list"
+        required: false
+        field: { label: "รูป", name: "image", widget: "image" }
+      - { label: "รายละเอียดรถ", name: "description", widget: "text", required: false }
+      - label: "อุปกรณ์ / ออปชัน"
+        name: "options"
+        widget: "list"
+        required: false
+        field: { label: "รายการ", name: "item", widget: "string" }
+      - { label: "หมายเหตุ", name: "note", widget: "text", required: false }
+      - { label: "เบอร์ติดต่อ", name: "phone", widget: "string", default: "062-743-7015" }
+      - { label: "LINE ID", name: "line_id", widget: "string", default: "thong13052543" }
